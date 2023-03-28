@@ -1,18 +1,18 @@
 version: '3.9'
 
 volumes:
-  postgres_data:
+  postgres_express:
     driver: local
-  redis_data:
+  redis_express:
     driver: local
 
 services:
-  postgres-hot-apis:
+  postgres-express:
     restart: unless-stopped
     image: postgres:15.2
-    container_name: postgres-hot-apis
+    container_name: postgres-express
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_express:/var/lib/postgresql/data
     ports:
       - '5432:5432'
     environment:
@@ -20,13 +20,13 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
 
-  redis-hot-apis:
+  redis-express:
     restart: unless-stopped
-    image: redis:7.0.9
-    container_name: redis-hot-apis
+    image: redis:7.0.10
+    container_name: redis-express
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
-      - redis_data:/data
+      - redis_express:/data
     ports:
       - 6379:6379
