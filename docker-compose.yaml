@@ -1,0 +1,32 @@
+version: '3.9'
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+services:
+  postgres-hot-apis:
+    restart: unless-stopped
+    image: postgres:15.2
+    container_name: postgres-hot-apis
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+
+  redis-hot-apis:
+    restart: unless-stopped
+    image: redis:7.0.9
+    container_name: redis-hot-apis
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - redis_data:/data
+    ports:
+      - 6379:6379
