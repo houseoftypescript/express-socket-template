@@ -22,7 +22,7 @@ services:
 
   redis-hot-apis:
     restart: unless-stopped
-    image: redis:7.0.9
+    image: redis:7.0.10
     container_name: redis-hot-apis
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
