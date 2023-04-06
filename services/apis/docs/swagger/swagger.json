@@ -21,9 +21,9 @@
 		"securitySchemes": {}
 	},
 	"info": {
-		"title": "express-template",
+		"title": "@express/apis",
 		"version": "0.0.1",
-		"description": "Express Template",
+		"description": "Express Template - APIs",
 		"license": {
 			"name": "MIT"
 		},

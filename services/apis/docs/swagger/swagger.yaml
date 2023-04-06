@@ -7,9 +7,9 @@ components:
   schemas: {HealthResponse: {properties: {status: {type: string}}, required: [status], type: object}}
   securitySchemes: {}
 info:
-  title: express-template
+  title: '@express/apis'
   version: 0.0.1
-  description: 'Express Template'
+  description: 'Express Template - APIs'
   license: {name: MIT}
   contact: {name: 'hieudoanm ', email: hieumdoan@gmail.com}
 openapi: 3.0.0

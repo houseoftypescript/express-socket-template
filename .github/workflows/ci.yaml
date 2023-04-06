@@ -10,8 +10,15 @@ on:
       - renovate/**
 
 jobs:
-  ci:
-    name: CI
+  cd:
+    strategy:
+      matrix:
+        project:
+          - name: APIs
+            working-directory: ./services/apis
+          - name: GraphQL
+            working-directory: ./services/graphql
+    name: CD - ${{ matrix.project.name }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,10 +26,13 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node.version }}
+          node-version: 18.x
       - name: Install Dependencies
         run: yarn install --network-timeout 86400000
+        working-directory: ${{ matrix.project.working-directory }}
       - name: Unit Test
         run: yarn test
+        working-directory: ${{ matrix.project.working-directory }}
       - name: Build Production
         run: yarn build
+        working-directory: ${{ matrix.project.working-directory }}

@@ -7,7 +7,14 @@ on:
 
 jobs:
   cd:
-    name: CD
+    strategy:
+      matrix:
+        project:
+          - name: APIs
+            working-directory: ./services/apis
+          - name: GraphQL
+            working-directory: ./services/graphql
+    name: CD - ${{ matrix.project.name }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,16 +25,10 @@ jobs:
           node-version: 18.x
       - name: Install Dependencies
         run: yarn install --network-timeout 86400000
+        working-directory: ${{ matrix.project.working-directory }}
       - name: Unit Test
         run: yarn test
+        working-directory: ${{ matrix.project.working-directory }}
       - name: Build Production
         run: yarn build
-      - name: Build Docs
-        run: yarn docs:swagger:html
-      - name: Deploy GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
-        with:
-          token: ${{ secrets.GHP_TOKEN }}
-          branch: gh-pages
-          folder: public
-          clean: true
+        working-directory: ${{ matrix.project.working-directory }}
