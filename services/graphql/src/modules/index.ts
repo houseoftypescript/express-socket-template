@@ -1,8 +1,6 @@
 import { mergeResolvers } from '@graphql-tools/merge';
-import countriesTypeDefs from './countries/countries.graphql';
-import countriesResolvers from './countries/countries.resolver';
-import googleTypeDefs from './google/google.graphql';
-import googleResolvers from './google/google.resolver';
+import healthTypeDefs from './health/health.graphql';
+import healthResolvers from './health/health.resolver';
 
 const rootTypeDefs = `#graphql
   type Query {
@@ -16,10 +14,6 @@ const rootResolvers = {
   },
 };
 
-export const typeDefs = [rootTypeDefs, countriesTypeDefs, googleTypeDefs];
+export const typeDefs = [rootTypeDefs, healthTypeDefs];
 
-export const resolvers = mergeResolvers([
-  rootResolvers,
-  countriesResolvers,
-  googleResolvers,
-]);
+export const resolvers = mergeResolvers([rootResolvers, healthResolvers]);

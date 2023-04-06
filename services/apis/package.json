@@ -26,7 +26,8 @@
     "lint": "eslint . --fix --ext .ts",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:cov": "jest --coverage"
+    "test:cov": "jest --coverage",
+    "test:e2e": "jest --config ./test/jest.config.ts"
   },
   "dependencies": {
     "compression": "1.7.4",
@@ -48,6 +49,7 @@
     "@types/jest": "29.5.0",
     "@types/morgan": "1.9.4",
     "@types/node": "18.15.11",
+    "@types/supertest": "2.0.12",
     "@types/webpack-node-externals": "3.0.0",
     "@typescript-eslint/eslint-plugin": "5.57.1",
     "@typescript-eslint/parser": "5.57.1",
@@ -61,6 +63,7 @@
     "openapi-to-postmanv2": "4.10.2",
     "prisma": "4.12.0",
     "redoc-cli": "0.13.21",
+    "supertest": "6.3.3",
     "ts-jest": "29.1.0",
     "ts-loader": "9.4.2",
     "ts-node": "10.9.1",

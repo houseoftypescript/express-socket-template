@@ -8,8 +8,6 @@ import errorHandler from './common/middlewares/error';
 import notFoundHandler from './common/middlewares/not-found';
 import { RegisterRoutes } from './routes';
 
-const NODE_ENV: string = process.env.NODE_ENV || 'development';
-
 const app = express();
 
 app.use(cors());
