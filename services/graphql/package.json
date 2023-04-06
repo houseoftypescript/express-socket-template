@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "repository": "git@github.com:houseoftypescript/graphql.git",
   "author": "hieudoanm <hieumdoan@gmail.com>",
-  "license": "MIT",
+  "license": "GNU GPL 3.0",
   "private": true,
   "engines": {
     "node": ">= 16",

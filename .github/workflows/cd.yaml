@@ -10,10 +10,12 @@ jobs:
     strategy:
       matrix:
         project:
-          - name: APIs
+          - name: API
             working-directory: ./services/apis
           - name: GraphQL
             working-directory: ./services/graphql
+          - name: WebSocket
+            working-directory: ./services/connections
     name: CD - ${{ matrix.project.name }}
     runs-on: ubuntu-latest
     steps:
