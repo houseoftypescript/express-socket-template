@@ -61,7 +61,7 @@
     "kill-port": "2.0.1",
     "nodemon": "2.0.22",
     "openapi-to-postmanv2": "4.11.0",
-    "prisma": "4.12.0",
+    "prisma": "4.13.0",
     "redoc-cli": "0.13.21",
     "supertest": "6.3.3",
     "ts-jest": "29.1.0",
