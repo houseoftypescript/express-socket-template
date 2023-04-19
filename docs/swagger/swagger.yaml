@@ -1,0 +1,42 @@
+---
+components:
+  examples: {}
+  headers: {}
+  parameters: {}
+  requestBodies: {}
+  responses: {}
+  schemas: {}
+  securitySchemes: {}
+info:
+  title: '@express/connections'
+  version: '0.0.1'
+  description: 'Express.js Template - Connections'
+  license:
+    name: 'GNU GPL 3.0'
+  contact:
+    name: 'hieudoanm '
+    email: 'hieumdoan@gmail.com'
+openapi: '3.0.0'
+paths:
+  /health:
+    get:
+      operationId: 'Get'
+      responses:
+        200:
+          description: "Service's Status"
+          content:
+            application/json:
+              schema:
+                properties:
+                  status:
+                    type: 'string'
+                required:
+                  - 'status'
+                type: 'object'
+      tags:
+        - 'Health'
+      security: []
+      parameters: []
+servers:
+  - url: 'http://localhost:5000'
+    description: 'Local'
